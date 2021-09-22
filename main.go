@@ -11,5 +11,8 @@ func main() {
 
 	// 装载路由
 	r := server.NewRouter()
-	r.Run(":3000")
+	err := r.Run(":3000")
+	if err != nil {
+		panic(err.Error())
+	}
 }
