@@ -27,5 +27,6 @@ func (service *CreateVideoService) Create() serializer.Response {
 	}
 	return serializer.Response{
 		Data: serializer.BuildVideo(video),
+		Msg: "投稿成功",
 	}
 }

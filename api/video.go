@@ -37,3 +37,25 @@ func ListVideo(c *gin.Context)  {
 		c.JSON(200, ErrorResponse(err))
 	}
 }
+
+// UpdateVideo 视频详情
+func UpdateVideo(c *gin.Context)  {
+	service := service.UpdateVideoService{}
+	if err := c.ShouldBind(&service); err == nil {
+		res := service.Update(c.Param("id"))
+		c.JSON(200, res)
+	} else {
+		c.JSON(200, ErrorResponse(err))
+	}
+}
+
+// DeleteVideo 删除视频 delete_video_service.go
+func DeleteVideo(c *gin.Context)  {
+	service := service.DeleteVideoService{}
+	if err := c.ShouldBind(&service); err == nil {
+		res := service.Delete(c.Param("id"))
+		c.JSON(200, res)
+	} else {
+		c.JSON(200, ErrorResponse(err))
+	}
+}
